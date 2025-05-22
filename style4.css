@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f8;
+  color: #333;
+  height: 100%;
+  transition: background-color 0.5s;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 1rem;
+  grid-template-areas: 
+    "header header header header header header header header"
+    "header header header header header header header header"
+    "hola hola sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "footer footer footer footer footer footer footer footer";
+}
+
+/* Header general */
+.grid-header {
+  grid-area: header;
+  background-color: #808080;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    "titulo titulo titulo links";
+  align-items: center;
+  padding: 1rem;
+}
+
+.titulo {
+  grid-area: titulo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.links {
+  grid-area: links;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Bienvenidos centrado */
+.hola {
+  grid-area: hola;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.texto {
+  grid-area: texto;
+  padding: 1rem;
+}
+
+.sec1 {
+  grid-area: sec1;
+}
+
+.sec2 {
+  grid-area: sec2;
+}
+
+.sec-one {
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  margin: auto;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fondo {
+  grid-area: footer;
+  background-color: #333;
+  height: 100px;
+}
+
+/* Estilo base (desktop - mayor a 768px) */
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(9, auto);
+  gap: 1rem;
+  grid-template-areas: 
+    "header header header header header header header header"
+    "header header header header header header header header"
+    "hola hola sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec1 sec1 sec1 sec1 sec1 sec1"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "texto texto sec2 sec2 sec2 sec2 sec2 sec2"
+    "footer footer footer footer footer footer footer footer";
+}
+
+.grid-header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    "titulo titulo titulo links";
+  background-color: #808080;
+  color: #fff;
+  padding: 1rem;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ========================= */
+/* TABLET: 480px – 768px */
+/* ========================= */
+@media (max-width: 768px) and (min-width: 481px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "header header"
+      "hola hola"
+      "texto texto"
+      "sec1 sec2"
+      "footer footer";
+  }
+
+  .grid-header {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "titulo"
+      "links";
+    text-align: center;
+  }
+
+  .links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .sec-one {
+    width: 90%;
+    height: 150px;
+    margin: 0.5rem auto;
+  }
+}
+
+/* ========================= */
+/* MOBILE: ≤ 480px */
+/* ========================= */
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "hola"
+      "texto"
+      "sec1"
+      "sec2"
+      "footer";
+  }
+
+  .grid-header {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "titulo"
+      "links";
+    text-align: center;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sec-one {
+    width: 90%;
+    height: 150px;
+    margin: 1rem auto;
+  }
+}
